@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:xamarin_to_do_list.Views"
+    x:Class="xamarin_to_do_list.Views.ListPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:TimeConverter x:Key="TimeConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#007acc" Offset="0" />
+                    <GradientStop Color="#4e8cff" Offset="1" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+
+            <ListView x:Name="TaskList" ItemsSource="{Binding}" ItemSelected="TaskList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding DueDate, StringFormat='{0:dd/MM/yyyy}'}" FontSize="Large" TextColor="White" FontFamily="UbuntuMono-Regular.ttf#UbuntuMono-Regular"/>
+                                    <Label Text="{Binding Time, Converter={StaticResource TimeConverter}}" FontSize="Large" TextColor="White" FontFamily="UbuntuMono-Regular.ttf#UbuntuMono-Regular"/>
+                                    <Label Text="{Binding Title}" FontSize="Large" TextColor="White" FontFamily="UbuntuMono-BoldItalic.ttf#UbuntuMono-BoldItalic"/>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <Button x:Name="ADD" Text="ADD" Clicked="ADD_Clicked"
+                    Margin="50, 0, 50, 40" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="10"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

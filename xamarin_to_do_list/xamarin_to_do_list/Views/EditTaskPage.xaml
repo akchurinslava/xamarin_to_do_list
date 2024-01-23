@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="xamarin_to_do_list.Views.EditTaskPage">
+
+    <ContentPage.Content>
+
+        <StackLayout>
+                        <StackLayout.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#007acc" Offset="0" />
+                    <GradientStop Color="#4e8cff" Offset="1" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+            <Label Text=" Title:" TextColor="White" FontFamily="UbuntuMono-Bold.ttf#UbuntuMono-Bold"/>
+            <Entry Text="{Binding Title}" IsSpellCheckEnabled="False" Unfocused="Entry_Completed" Completed="Entry_Completed" TextColor="White" FontFamily="UbuntuMono-Regular.ttf#UbuntuMono-Regular"/>
+
+            <Label Text=" Date:" TextColor="White" FontFamily="UbuntuMono-Bold.ttf#UbuntuMono-Bold"/>
+            <DatePicker Date="{Binding DueDate}" TextColor="White" FontFamily="UbuntuMono-Regular.ttf#UbuntuMono-Regular"/>
+
+            <Label Text=" Time:" TextColor="White" FontFamily="UbuntuMono-Bold.ttf#UbuntuMono-Bold"/>
+            <TimePicker x:Name="TimeFormating" Time="{Binding Time}" Format="HH:mm" TextColor="White" FontFamily="UbuntuMono-Regular.ttf#UbuntuMono-Regular"/>
+
+            <Label Text=" Description:" TextColor="White" FontFamily="UbuntuMono-Bold.ttf#UbuntuMono-Bold"/>
+            <Editor Text="{Binding Description}" IsSpellCheckEnabled="False" Unfocused="Entry_Completed" Completed="Entry_Completed" TextColor="White" FontFamily="UbuntuMono-Regular.ttf#UbuntuMono-Regular"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="Save" Text="Save" Clicked="Save_Clicked" BackgroundColor="#4CAF50" TextColor="White" Margin="60, 0, 0, 0" CornerRadius="10" />
+                <Button x:Name="Delete" Text="Delete" Clicked="Delete_Clicked" BackgroundColor="#d9534f" TextColor="White" Margin="0, 0, 0, 0" CornerRadius="10"/>
+                <Button x:Name="Cancel" Text="Cancel" Clicked="Cancel_Clicked" BackgroundColor="Gray" TextColor="White" Margin="0, 0, 0, 0" CornerRadius="10"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
+
